@@ -1,46 +1,75 @@
 .container {
-  height: 100%;
+  height: 100vh;
 }
 
 .headerWrap {
   width: 100%;
-
-  h1 {
-    width: 280px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1.8rem;
-    text-align: left;
-  }
 }
 
 .inputContainer {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .numbersAndBtnContainer {
   width: 100%;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 1439px) {
   .container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
   }
+}
 
+@media (max-width: 1119px) {
+  .container,
+  .headerWrap,
+  .inputContainer,
+  .numbersAndBtnContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 320px) {
   .headerWrap {
-    flex-grow: 1;
+    width: 100%;
+
+    p {
+      width: 280px;
+      font-size: 3.4rem;
+      text-align: left;
+      line-height: 1;
+    }
   }
 
   .inputContainer {
-    height: 200px;
-    background-color: red;
+    height: 300px;
+  }
+
+  .test {
+    width: 100%;
+    height: 100px;
+    background-color: royalblue;
   }
 
   .numbersAndBtnContainer {
     height: 200px;
-    background-color: antiquewhite;
+  }
+
+  .test1 {
+    width: 100%;
+    height: 100%;
+    background-color: bisque;
   }
 }
