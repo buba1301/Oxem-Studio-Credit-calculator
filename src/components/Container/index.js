@@ -6,7 +6,7 @@ const Container = () => {
   return (
     <main className={s.container}>
       <div className={s.headerWrap}>
-        <h1>Container</h1>
+        <h1>Расчитайте стоимость автомобиля в лизинг</h1>
       </div>
       <div className={s.inputContainer}></div>
       <div className={s.numbersAndBtnContainer}></div>
