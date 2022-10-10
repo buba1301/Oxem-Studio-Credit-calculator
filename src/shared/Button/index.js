@@ -1,6 +1,6 @@
 import React from 'react';
 
-import s from './Button.module.scss';
+import s from './Button.module';
 
 const Button = () => {
   return <div>Button</div>;
