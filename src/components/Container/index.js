@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react';
+import React, { useState } from 'react';
 import Input from '../../shared/Input';
 
 import s from './Container.module';
@@ -34,26 +34,32 @@ const numberAndButtonsLabels = [
   'Оставить заявку',
 ];
 
-const Container = () => (
-  <main className={s.container}>
-    <div className={s.headerWrap}>
-      <p>Расчитайте стоимость автомобиля в лизинг</p>
-    </div>
-    <form className={s.inputContainer}>
-      {inputsLabels.map((label, index) => (
-        <div key={index} className={s.test}>
-          <Input label={label} />
-        </div>
-      ))}
-    </form>
-    <div className={s.numbersAndBtnContainer}>
-      {numberAndButtonsLabels.map((elem, index) => (
-        <div key={index} className={s.test1}>
-          {elem}
-        </div>
-      ))}
-    </div>
-  </main>
-);
+const Container = () => {
+  const [priceValue, setPriceValue] = useState('');
+  const [initialValue, setInitialValue] = useState('');
+  const [monthsValue, setMonthsValue] = useState('');
+
+  return (
+    <main className={s.container}>
+      <div className={s.headerWrap}>
+        <p>Расчитайте стоимость автомобиля в лизинг</p>
+      </div>
+      <form className={s.inputContainer}>
+        {inputsLabels.map((label, index) => (
+          <div key={index} className={s.test}>
+            <Input label={label} />
+          </div>
+        ))}
+      </form>
+      <div className={s.numbersAndBtnContainer}>
+        {numberAndButtonsLabels.map((elem, index) => (
+          <div key={index} className={s.test1}>
+            {elem}
+          </div>
+        ))}
+      </div>
+    </main>
+  );
+};
 
 export default Container;

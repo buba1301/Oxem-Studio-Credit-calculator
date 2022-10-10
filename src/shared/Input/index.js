@@ -10,8 +10,6 @@ const Input = ({ label }) => {
 
   const [value, setValue] = useState(beginvalue);
 
-  // const percentValue = `${value} %`;
-
   const handleChangeInput = (e) => {
     const currentValue = e.target.value;
     setValue(currentValue);
