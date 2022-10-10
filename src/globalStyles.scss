@@ -1,3 +1,6 @@
+@import url('./fonts/Nekst-Regular/style.css');
+@import url('./fonts/Gilroy-Regular/style.css');
+
 * {
   box-sizing: border-box;
 }
@@ -15,7 +18,7 @@ body {
   flex-direction: column;
   justify-content: center;
   background-color: #282a36;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Nekst', Arial, sans-serif;
   font-size: 1.4rem;
   -webkit-font-smoothing: antialiased;
   text-size-adjust: 100%;

@@ -6,16 +6,19 @@ import s from './Container.module';
 
 const inputsLabels = [
   {
+    name: 'sum',
     text: 'Желаемая сумма кредита',
     minValue: '1000000',
     maxValue: '6000000',
   },
   {
+    name: 'fee',
     text: 'Первоначальный взнос',
     minValue: '10',
     maxValue: '60',
   },
   {
+    name: 'term',
     text: 'Срок лизинга',
     minValue: '1',
     maxValue: '60',

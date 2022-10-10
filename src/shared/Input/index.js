@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import s from './Input.module';
 
 const Input = ({ label }) => {
-  const { text, minValue, maxValue } = label;
+  const { text, minValue, maxValue, name } = label;
 
   const beginvalue = maxValue / 2;
 
@@ -20,25 +20,28 @@ const Input = ({ label }) => {
 
   return (
     <div className={s.divRow}>
-      <label className={s.label}>
+      <label className={s.label} htmlFor={name}>
         {text}
-        <input
-          className={s.inputNumber}
-          type='number'
-          min={minValue}
-          max={maxValue}
-          value={value}
-          onChange={handleChangeInput}
-        />
-        <input
-          type='range'
-          min={minValue}
-          max={maxValue}
-          step='1'
-          value={value}
-          onInput={handleChangeInputRange}
-        />
       </label>
+      <input
+        className={s.inputNumber}
+        name={name}
+        type='number'
+        min={minValue}
+        max={maxValue}
+        value={value}
+        onChange={handleChangeInput}
+      />
+      <i>&#8381;</i>
+      <input
+        type='range'
+        name={name}
+        min={minValue}
+        max={maxValue}
+        step='1'
+        value={value}
+        onInput={handleChangeInputRange}
+      />
     </div>
   );
 };

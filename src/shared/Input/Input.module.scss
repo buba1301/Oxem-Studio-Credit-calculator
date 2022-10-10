@@ -1,18 +1,39 @@
 .divRow {
   width: 100%;
-}
 
-.label {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
 
+.inputNumber {
+}
+
 @media (max-width: 320px) {
   .divRow {
+    position: relative;
     height: 10rem;
     background-color: #f3f3f4;
+
+    i {
+      position: absolute;
+      right: 10%;
+      top: 40%;
+      font-family: 'Nekst', Arial, sans-serif;
+      font-size: 2.2rem;
+      font-weight: bold;
+      line-height: 2rem;
+      pointer-events: none;
+    }
+  }
+
+  .label {
+    margin-left: 20px;
+    align-self: flex-start;
+    font-size: 1.4rem;
+    font-style: 'Gilroy', Arial, sans-serif;
+    line-height: 1.6rem;
   }
 
   .inputNumber {
@@ -21,8 +42,9 @@
     border-radius: 16px;
     border: none;
     background-color: #e3e3e3;
-  }
-
-  .inputNumber:placeholder-shown {
+    font-family: 'Nekst', Arial, sans-serif;
+    font-size: 2.2rem;
+    font-weight: bold;
+    line-height: 2rem;
   }
 }
