@@ -1,4 +1,28 @@
+.divRow {
+  width: 100%;
+}
+
 .label {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media (max-width: 320px) {
+  .divRow {
+    height: 10rem;
+    background-color: #f3f3f4;
+  }
+
+  .inputNumber {
+    width: 280px;
+    height: 60px;
+    border-radius: 16px;
+    border: none;
+    background-color: #e3e3e3;
+  }
+
+  .inputNumber:placeholder-shown {
+  }
 }

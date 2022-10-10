@@ -19,24 +19,27 @@ const Input = ({ label }) => {
   };
 
   return (
-    <label className={s.label}>
-      {text}
-      <input
-        type='number'
-        min={minValue}
-        max={maxValue}
-        value={value}
-        onChange={handleChangeInput}
-      />
-      <input
-        type='range'
-        min={minValue}
-        max={maxValue}
-        step='1'
-        value={value}
-        onInput={handleChangeInputRange}
-      />
-    </label>
+    <div className={s.divRow}>
+      <label className={s.label}>
+        {text}
+        <input
+          className={s.inputNumber}
+          type='number'
+          min={minValue}
+          max={maxValue}
+          value={value}
+          onChange={handleChangeInput}
+        />
+        <input
+          type='range'
+          min={minValue}
+          max={maxValue}
+          step='1'
+          value={value}
+          onInput={handleChangeInputRange}
+        />
+      </label>
+    </div>
   );
 };
 
