@@ -6,25 +6,19 @@ import s from './Container.module';
 
 const inputsLabels = [
   {
-    carPrice: {
-      text: 'Желаемая сумма кредита',
-      minValue: '100000',
-      maxValue: '6000000',
-    },
+    text: 'Желаемая сумма кредита',
+    minValue: '1000000',
+    maxValue: '6000000',
   },
   {
-    percentFee: {
-      text: 'Первоначальный взнос',
-      minValue: '10',
-      maxValue: '60',
-    },
+    text: 'Первоначальный взнос',
+    minValue: '10',
+    maxValue: '60',
   },
   {
-    month: {
-      text: 'Срок лизинга',
-      minValue: '1',
-      maxValue: '60',
-    },
+    text: 'Срок лизинга',
+    minValue: '1',
+    maxValue: '60',
   },
 ];
 
@@ -40,7 +34,7 @@ const Container = () => (
       <p>Расчитайте стоимость автомобиля в лизинг</p>
     </div>
     <form className={s.inputContainer}>
-      {inputsLabels.map(({ label }, index) => (
+      {inputsLabels.map((label, index) => (
         <div key={index} className={s.test}>
           <Input label={label} />
         </div>
