@@ -9,19 +9,30 @@ const Input = ({ label }) => {
 
   const [value, setValue] = useState(beginvalue);
 
+  const handleChangeInput = (e) => {
+    const currentValue = e.target.value;
+    setValue(currentValue);
+  };
+
   const handleChangeInputRange = (e) => {
     setValue(e.target.value);
-    console.log('e', e.target.value);
   };
 
   return (
     <label className={s.label}>
       {text}
-      <input type='number' min={minValue} max={maxValue} value={value} />
+      <input
+        type='number'
+        min={minValue}
+        max={maxValue}
+        value={value}
+        onChange={handleChangeInput}
+      />
       <input
         type='range'
         min={minValue}
         max={maxValue}
+        step='1'
         value={value}
         onInput={handleChangeInputRange}
       />
