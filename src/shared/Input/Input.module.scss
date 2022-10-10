@@ -24,7 +24,6 @@
       font-size: 2.2rem;
       font-weight: bold;
       line-height: 2rem;
-      pointer-events: none;
     }
   }
 
@@ -36,9 +35,8 @@
     line-height: 1.6rem;
   }
 
-  .inputNumber {
-    width: 280px;
-    height: 60px;
+  .inputNumber,
+  .inputPercent {
     border-radius: 16px;
     border: none;
     background-color: #e3e3e3;
@@ -46,5 +44,28 @@
     font-size: 2.2rem;
     font-weight: bold;
     line-height: 2rem;
+  }
+
+  .inputNumber {
+    width: 280px;
+    height: 60px;
+  }
+
+  .fee {
+    pointer-events: none;
+  }
+
+  .inputPercent {
+    position: absolute;
+    right: 25px;
+    top: 25%;
+    width: 67px;
+    height: 48px;
+    background-color: grey;
+    text-align: center;
+  }
+
+  .inputPercent::after {
+    content: '%';
   }
 }
