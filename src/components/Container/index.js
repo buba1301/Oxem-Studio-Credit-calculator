@@ -1,12 +1,25 @@
 import React from 'react';
+import Input from '../../shared/Input';
 
 import s from './Container.module.scss';
 
-const inputsLabels = [
-  'Желаемая сумма кредита',
-  'Первоначальный взнос',
-  'Срок лизинга',
-];
+const inputsLabels = {
+  carPrice: {
+    text: 'Желаемая сумма кредита',
+    minValue: '100000',
+    maxValue: '6000000',
+  },
+  percentFee {
+		'Первоначальный взнос',
+    minValue: '10',
+    maxValue: '60',
+	},
+	month: {
+		'Срок лизинга',
+		minValue: '1',
+		maxValue: '60',
+	}
+};
 
 const numberAndButtonsLabels = [
   'Сумма договора лизинга',
@@ -20,13 +33,13 @@ const Container = () => {
       <div className={s.headerWrap}>
         <p>Расчитайте стоимость автомобиля в лизинг</p>
       </div>
-      <div className={s.inputContainer}>
-        {inputsLabels.map((elem, index) => (
+      <form className={s.inputContainer}>
+        {inputsLabels.map(({ label }, index) => (
           <div key={index} className={s.test}>
-            <span>{elem}</span>
+            <Input label={label} />
           </div>
         ))}
-      </div>
+      </form>
       <div className={s.numbersAndBtnContainer}>
         {numberAndButtonsLabels.map((elem, index) => (
           <div key={index} className={s.test1}>
