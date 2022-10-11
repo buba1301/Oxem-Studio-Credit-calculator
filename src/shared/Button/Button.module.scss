@@ -1,5 +1,5 @@
 .btnContainer {
-  width: 100%;
+  width: 380px;
   height: 100px;
   display: flex;
   align-items: center;
@@ -28,13 +28,10 @@
   opacity: 0.4;
 }
 
-@media (min-width: 1439px) {
-  .button {
-    width: 468px;
-  }
-}
-
 @media (max-width: 1439px) {
+  .btnContainer {
+    align-self: flex-start;
+  }
   .button {
     width: 320px;
   }
@@ -43,7 +40,6 @@
 @media (max-width: 1119px) {
   .btnContainer {
     width: 696px;
-    justify-content: flex-start;
   }
 
   .button {
