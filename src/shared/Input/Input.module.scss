@@ -22,7 +22,8 @@
   .inputNumberWrap {
     position: relative;
     width: 300px;
-    height: 80px;
+    height: 85%;
+    justify-content: space-between;
 
     i {
       position: absolute;
@@ -78,9 +79,33 @@
   }
 
   .inputRange {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     position: absolute;
-    width: 260px;
-    left: 20px;
-    top: 63px;
+    width: 250px;
+    height: 2px;
+    left: 22px;
+    top: 80px;
+    background-color: #ff9514;
+    outline: 0;
+  }
+
+  .inputRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ff9514;
+    cursor: pointer;
+  }
+
+  .inputRange::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ff9514;
+    cursor: pointer;
   }
 }
