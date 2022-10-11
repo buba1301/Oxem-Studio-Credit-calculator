@@ -75,19 +75,18 @@
 
 @media (max-width: 1119px) {
   .container,
-  .headerWrap,
   .inputContainer,
   .numbersAndBtnContainer,
   .resultContainer {
+    width: 696px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
     gap: 10px;
   }
 
   .headerWrap {
-    width: 696px;
+    width: 100%;
   }
 
   .headerWrap p {
@@ -114,6 +113,13 @@
 }
 
 @media (max-width: 767px) {
+  .container,
+  .inputContainer,
+  .numbersAndBtnContainer,
+  .resultContainer {
+    width: 280px;
+  }
+
   .headerWrap {
     p {
       width: 280px;
