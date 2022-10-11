@@ -28,30 +28,33 @@ const Input = ({ label, dispatch, initialValue, percentValue }) => {
 
   return (
     <div className={s.divRow}>
-      <label className={s.label} htmlFor={name}>
-        {text}
-      </label>
-      <input
-        className={classNamesForInputNumber}
-        name={name}
-        type='number'
-        min={minValue}
-        max={maxValue}
-        value={initialValue}
-        onChange={handleChangeInput}
-      />
-      {name === 'price' && <i>&#8381;</i>}
-      {name === 'initial' && (
+      <div className={s.inputNumberWrap}>
+        <label className={s.label} htmlFor={name}>
+          {text}
+        </label>
         <input
-          className={s.inputPercent}
-          name='percent'
+          className={classNamesForInputNumber}
+          name={name}
           type='number'
           min={minValue}
           max={maxValue}
-          value={percentValue}
+          value={initialValue}
           onChange={handleChangeInput}
         />
-      )}
+        {name === 'price' && <i>&#8381;</i>}
+        {name === 'initial' && (
+          <input
+            className={s.inputPercent}
+            name='percent'
+            type='number'
+            min={minValue}
+            max={maxValue}
+            value={percentValue}
+            onChange={handleChangeInput}
+          />
+        )}
+      </div>
+
       <input
         type='range'
         name={name === 'initial' ? 'percent' : name}

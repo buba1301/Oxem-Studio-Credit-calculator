@@ -7,8 +7,7 @@
 }
 
 .button {
-  width: 280px;
-  height: 60px;
+  height: 68px;
   border: none;
   border-radius: 40px;
   background-color: #ff9514;
@@ -27,4 +26,29 @@
 .button:disabled {
   background-color: #ff9514;
   opacity: 0.4;
+}
+
+@media (min-width: 1439px) {
+  .button {
+    width: 468px;
+  }
+}
+
+@media (max-width: 1439px) {
+  .button {
+    width: 320px;
+  }
+}
+
+@media (max-width: 1119px) {
+  .button {
+    width: 345px;
+  }
+}
+
+@media (max-width: 767px) {
+  .button {
+    width: 280px;
+    height: 60px;
+  }
 }
