@@ -27,8 +27,14 @@ const inputsLabels = [
 ];
 
 const numberAndButtonsLabels = [
-  'Сумма договора лизинга',
-  'Первоначальный взнос',
+  {
+    name: 'contractSum',
+    text: 'Сумма договора лизинга',
+  },
+  {
+    name: 'monhtlyPayment',
+    text: 'Первоначальный взнос',
+  },
 ];
 
 const getInitialState = (data) => {
@@ -82,6 +88,18 @@ const reducer = (state, action) => {
     case 'contractSum':
       return {
         ...state,
+        contractSum: parseInt(
+          getContractSum(state.initial, state.months, state.monhtlyPayment),
+          10
+        ),
+      };
+    case 'monhtlyPayment':
+      return {
+        ...state,
+        monhtlyPayment: parseInt(
+          getMonthlyPayment(state.price, state.initial, state.months),
+          10
+        ),
       };
     default:
       throw new Error();
@@ -91,7 +109,10 @@ const reducer = (state, action) => {
 const Container = () => {
   const [state, dispatch] = useReducer(reducer, getInitialState(inputsLabels));
 
-  console.log('state', state);
+  useEffect(() => {
+    dispatch({ type: 'contractSum' });
+    dispatch({ type: 'monhtlyPayment' });
+  }, [state.price, state.initial, state.months]);
 
   return (
     <form className={s.container}>
@@ -111,10 +132,10 @@ const Container = () => {
         ))}
       </div>
       <div className={s.numbersAndBtnContainer}>
-        {numberAndButtonsLabels.map((elem, index) => (
+        {numberAndButtonsLabels.map(({ text, name }, index) => (
           <div key={index} className={s.test1}>
-            <label className={s.label}>{elem}</label>
-            <input className={s.input} type='number' value='4000' />
+            <label className={s.label}>{text}</label>
+            <input className={s.input} type='number' value={state[name]} />
           </div>
         ))}
       </div>

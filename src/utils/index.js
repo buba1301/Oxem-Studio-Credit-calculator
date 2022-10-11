@@ -1,4 +1,4 @@
-const rate = 0.35;
+const rate = 0.035;
 
 export const getInitialSum = (initialValue, price) =>
   (initialValue / 100) * price;
