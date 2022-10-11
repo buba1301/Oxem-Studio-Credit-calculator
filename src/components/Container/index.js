@@ -43,7 +43,6 @@ const getInitialState = (data) => {
 };
 
 const reducer = (state, action) => {
-  console.log('action', action.type);
   switch (action.type) {
     case 'price':
       return {
@@ -68,7 +67,6 @@ const reducer = (state, action) => {
 
 const Container = () => {
   const [state, dispatch] = useReducer(reducer, getInitialState(inputsLabels));
-  console.log('reducer', state);
   return (
     <main className={s.container}>
       <div className={s.headerWrap}>
