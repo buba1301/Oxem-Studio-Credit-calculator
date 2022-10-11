@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect, useReducer, useState } from 'react';
+import Button from '../../shared/Button';
 import Input from '../../shared/Input';
 import { getContractSum, getInitialSum, getMonthlyPayment } from '../../utils';
 
@@ -36,6 +37,8 @@ const numberAndButtonsLabels = [
     text: 'Первоначальный взнос',
   },
 ];
+
+const buttonText = 'Оставить заявку';
 
 const getInitialState = (data) => {
   const [price, initial, months] = data;
@@ -133,12 +136,13 @@ const Container = () => {
       </div>
       <div className={s.numbersAndBtnContainer}>
         {numberAndButtonsLabels.map(({ text, name }, index) => (
-          <div key={index} className={s.test1}>
+          <div key={index} className={s.resultContainer}>
             <label className={s.label}>{text}</label>
             <input className={s.input} type='number' value={state[name]} />
           </div>
         ))}
       </div>
+      <Button text={buttonText} />
     </form>
   );
 };
