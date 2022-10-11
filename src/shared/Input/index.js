@@ -3,16 +3,16 @@ import cn from 'classnames';
 
 import s from './Input.module';
 
-const Input = ({ label }) => {
-  const { text, minValue, maxValue, name, currency } = label;
+const Input = ({ label, dispatch, initialValue, percentValue }) => {
+  const { text, minValue, maxValue, name } = label;
 
-  const beginvalue = maxValue / 2;
-
-  const [value, setValue] = useState(beginvalue);
+  const [value, setValue] = useState('');
 
   const handleChangeInput = (e) => {
     const currentValue = e.target.value;
+    const currentName = e.target.name;
     setValue(currentValue);
+    dispatch({ type: currentName, payload: currentValue });
   };
 
   const handleChangeInputRange = (e) => {
@@ -20,7 +20,7 @@ const Input = ({ label }) => {
   };
 
   const classNamesForInputNumber = cn(s.inputNumber, {
-    [s.fee]: name === 'fee',
+    [s.fee]: name === 'initial',
   });
 
   return (
@@ -34,18 +34,18 @@ const Input = ({ label }) => {
         type='number'
         min={minValue}
         max={maxValue}
-        value={value}
+        value={initialValue}
         onChange={handleChangeInput}
       />
-      {name === 'sum' && <i>&#8381;</i>}
-      {name === 'fee' && (
+      {name === 'price' && <i>&#8381;</i>}
+      {name === 'initial' && (
         <input
           className={s.inputPercent}
-          name={name}
+          name='percent'
           type='number'
           min={minValue}
           max={maxValue}
-          value={value}
+          value={percentValue}
           onChange={handleChangeInput}
         />
       )}
