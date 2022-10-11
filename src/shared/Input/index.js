@@ -16,7 +16,10 @@ const Input = ({ label, dispatch, initialValue, percentValue }) => {
   };
 
   const handleChangeInputRange = (e) => {
-    setValue(e.target.value);
+    const currentValue = e.target.value;
+    const currentName = e.target.name;
+    setValue(currentValue);
+    dispatch({ type: currentName, payload: currentValue });
   };
 
   const classNamesForInputNumber = cn(s.inputNumber, {
@@ -51,7 +54,7 @@ const Input = ({ label, dispatch, initialValue, percentValue }) => {
       )}
       <input
         type='range'
-        name={name}
+        name={name === 'initial' ? 'percent' : name}
         min={minValue}
         max={maxValue}
         step='1'

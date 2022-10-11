@@ -43,21 +43,23 @@ const getInitialState = (data) => {
 };
 
 const reducer = (state, action) => {
+  const initialValue = parseInt((action.payload / 100) * state.price, 10);
+
   switch (action.type) {
     case 'price':
       return {
         ...state,
         price: action.payload,
-        initial: (state.percent / 100) * action.payload,
+        initial: parseInt((action.payload / 100) * state.percent, 10),
       };
     case 'initial':
-      return { ...state, initial: (action.payload / 100) * state.price };
+      return { ...state, initial: initialValue };
     case 'months':
       return { ...state, months: action.payload };
     case 'percent':
       return {
         ...state,
-        initial: (action.payload / 100) * state.price,
+        initial: initialValue,
         percent: action.payload,
       };
     default:
