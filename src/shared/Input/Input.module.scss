@@ -8,9 +8,6 @@
   width: 100%;
 }
 
-.inputRange {
-}
-
 .label {
   font-style: 'Gilroy', Arial, sans-serif;
 }
@@ -71,8 +68,8 @@
 
     i {
       position: absolute;
-      right: 5%;
-      top: 53%;
+      right: 24px;
+      top: 54%;
       font-family: 'Nekst', Arial, sans-serif;
       font-size: 3rem;
       font-weight: bold;
@@ -96,6 +93,7 @@
   .inputNumber {
     width: 320px;
     height: 68px;
+    padding-left: 30px;
   }
 
   .inputPercent {
@@ -103,6 +101,7 @@
     top: 50%;
     width: 70px;
     height: 54px;
+    font-size: 2rem;
   }
 
   .inputRange {
@@ -120,8 +119,7 @@
 
     i {
       position: absolute;
-      right: 5%;
-      top: 50%;
+      top: 52%;
       font-family: 'Nekst', Arial, sans-serif;
       font-size: 3rem;
       font-weight: bold;
@@ -135,6 +133,7 @@
 
   .inputNumber {
     width: 696px;
+    padding-left: 25px;
   }
 
   .inputPercent {
@@ -160,7 +159,7 @@
 
     i {
       position: absolute;
-      right: 10%;
+      right: 35px;
       top: 50%;
       font-family: 'Nekst', Arial, sans-serif;
       font-size: 2.2rem;
@@ -185,6 +184,7 @@
   .inputNumber {
     width: 280px;
     height: 60px;
+    padding-left: 20px;
   }
 
   .inputPercent {

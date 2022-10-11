@@ -48,11 +48,22 @@
   }
 
   .resultContainer {
+    position: relative;
     height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+
+    i {
+      position: absolute;
+      top: 35%;
+      right: 35px;
+      font-family: 'Nekst', Arial, sans-serif;
+      font-size: 5.4rem;
+      font-weight: bold;
+      line-height: 0.9;
+    }
   }
 
   .label {

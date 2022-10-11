@@ -2,7 +2,12 @@
 import React, { useEffect, useReducer, useState } from 'react';
 import Button from '../../shared/Button';
 import Input from '../../shared/Input';
-import { getContractSum, getInitialSum, getMonthlyPayment } from '../../utils';
+import {
+  getContractSum,
+  getInitialSum,
+  getMonthlyPayment,
+  numberWithSpaces,
+} from '../../utils';
 
 import s from './Container.module';
 
@@ -137,7 +142,12 @@ const Container = () => {
         {numberAndButtonsLabels.map(({ text, name }, index) => (
           <div key={index} className={s.resultContainer}>
             <label className={s.label}>{text}</label>
-            <input className={s.input} type='number' value={state[name]} />
+            <input
+              className={s.input}
+              type='text'
+              value={numberWithSpaces(state[name])}
+            />
+            <i>&#8381;</i>
           </div>
         ))}
       </div>
