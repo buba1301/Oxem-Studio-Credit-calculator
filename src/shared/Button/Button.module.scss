@@ -41,12 +41,21 @@
 }
 
 @media (max-width: 1119px) {
+  .btnContainer {
+    width: 696px;
+    justify-content: flex-start;
+  }
+
   .button {
     width: 345px;
   }
 }
 
 @media (max-width: 767px) {
+  .btnContainer {
+    justify-content: center;
+  }
+
   .button {
     width: 280px;
     height: 60px;

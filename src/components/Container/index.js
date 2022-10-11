@@ -124,14 +124,13 @@ const Container = () => {
       </div>
       <div className={s.inputContainer}>
         {inputsLabels.map((label, index) => (
-          <div key={index} className={s.test}>
-            <Input
-              label={label}
-              dispatch={dispatch}
-              initialValue={state[label.name]}
-              percentValue={state.percent}
-            />
-          </div>
+          <Input
+            label={label}
+            key={index}
+            dispatch={dispatch}
+            initialValue={state[label.name]}
+            percentValue={state.percent}
+          />
         ))}
       </div>
       <div className={s.numbersAndBtnContainer}>
