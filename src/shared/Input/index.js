@@ -53,17 +53,17 @@ const Input = ({ label, dispatch, initialValue, percentValue }) => {
             onChange={handleChangeInput}
           />
         )}
+        <input
+          className={s.inputRange}
+          type='range'
+          name={name === 'initial' ? 'percent' : name}
+          min={minValue}
+          max={maxValue}
+          step='1'
+          value={value}
+          onInput={handleChangeInputRange}
+        />
       </div>
-
-      <input
-        type='range'
-        name={name === 'initial' ? 'percent' : name}
-        min={minValue}
-        max={maxValue}
-        step='1'
-        value={value}
-        onInput={handleChangeInputRange}
-      />
     </div>
   );
 };

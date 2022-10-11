@@ -2,7 +2,7 @@
 .inputNumberWrap {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
@@ -10,7 +10,7 @@
   width: 100%;
 }
 
-.inputNumber {
+.inputRange {
 }
 
 @media (max-width: 767px) {
@@ -75,5 +75,12 @@
 
   .inputPercent::after {
     content: '%';
+  }
+
+  .inputRange {
+    position: absolute;
+    width: 260px;
+    left: 20px;
+    top: 63px;
   }
 }
