@@ -8,4 +8,4 @@ export const getContractSum = (initialValue, months, monthlyPayment) =>
 
 export const getMonthlyPayment = (price, initialValue, months) =>
   (price - initialValue) *
-  ((0.035 * (1 + 0.035) ** months) / ((1 + 0.035) ** months - 1));
+  ((rate * (1 + rate) ** months) / ((1 + rate) ** months - 1));

@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect, useReducer, useState } from 'react';
 import Input from '../../shared/Input';
+import { getContractSum, getInitialSum, getMonthlyPayment } from '../../utils';
 
 import s from './Container.module';
 
@@ -28,22 +29,38 @@ const inputsLabels = [
 const numberAndButtonsLabels = [
   'Сумма договора лизинга',
   'Первоначальный взнос',
-  'Оставить заявку',
 ];
 
 const getInitialState = (data) => {
   const [price, initial, months] = data;
 
+  const initialPrice = price.maxValue / 2;
+  const initialValue = ((initial.maxValue / 2 / 100) * price.maxValue) / 2;
+  const initialMonths = months.maxValue / 2;
+  const initialPercent = initial.maxValue / 2;
+  const initialMonthlyPayment = getMonthlyPayment(
+    initialPrice,
+    initialValue,
+    initialMonths
+  );
+  const initialContractSum = getContractSum(
+    initialValue,
+    initialMonths,
+    initialMonthlyPayment
+  );
+
   return {
-    price: price.maxValue / 2,
-    initial: ((initial.maxValue / 2 / 100) * price.maxValue) / 2,
-    months: months.maxValue / 2,
-    percent: initial.maxValue / 2,
+    price: initialPrice,
+    initial: initialValue,
+    months: initialMonths,
+    percent: initialPercent,
+    contractSum: parseInt(initialContractSum, 10),
+    monhtlyPayment: parseInt(initialMonthlyPayment, 10),
   };
 };
 
 const reducer = (state, action) => {
-  const initialValue = parseInt((action.payload / 100) * state.price, 10);
+  const initialValue = parseInt(getInitialSum(action.payload, state.price), 10);
 
   switch (action.type) {
     case 'price':
@@ -62,6 +79,10 @@ const reducer = (state, action) => {
         initial: initialValue,
         percent: action.payload,
       };
+    case 'contractSum':
+      return {
+        ...state,
+      };
     default:
       throw new Error();
   }
@@ -69,12 +90,15 @@ const reducer = (state, action) => {
 
 const Container = () => {
   const [state, dispatch] = useReducer(reducer, getInitialState(inputsLabels));
+
+  console.log('state', state);
+
   return (
-    <main className={s.container}>
+    <form className={s.container}>
       <div className={s.headerWrap}>
         <p>Расчитайте стоимость автомобиля в лизинг</p>
       </div>
-      <form className={s.inputContainer}>
+      <div className={s.inputContainer}>
         {inputsLabels.map((label, index) => (
           <div key={index} className={s.test}>
             <Input
@@ -85,15 +109,16 @@ const Container = () => {
             />
           </div>
         ))}
-      </form>
+      </div>
       <div className={s.numbersAndBtnContainer}>
         {numberAndButtonsLabels.map((elem, index) => (
           <div key={index} className={s.test1}>
-            {elem}
+            <label className={s.label}>{elem}</label>
+            <input className={s.input} type='number' value='4000' />
           </div>
         ))}
       </div>
-    </main>
+    </form>
   );
 };
 
