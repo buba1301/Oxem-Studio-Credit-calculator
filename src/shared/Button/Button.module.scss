@@ -28,13 +28,21 @@
   opacity: 0.4;
 }
 
-@media (max-width: 1439px) {
+@media (max-width: 1439px), (min-width: 1440px) {
   .btnContainer {
+    justify-content: flex-start;
     align-self: flex-start;
     padding-right: 40px;
   }
+
   .button {
-    width: 320px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .btnContainer {
+    width: 450px;
   }
 }
 

@@ -27,17 +27,6 @@
   background-color: #e3e3e3;
 }
 
-input[type='number']::-webkit-outer-spin-button,
-input[type='number']::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type='number'] {
-  -moz-appearance: textfield;
-}
-
 .fee {
   pointer-events: none;
 }
@@ -77,9 +66,8 @@ input[type='number'] {
   cursor: pointer;
 }
 
-@media (max-width: 1439px) {
+@media (max-width: 1439px), (min-width: 1440px) {
   .inputNumberWrap {
-    width: 320px;
     height: 120px;
     justify-content: space-between;
     align-items: flex-start;
@@ -109,7 +97,6 @@ input[type='number'] {
   }
 
   .inputNumber {
-    width: 320px;
     height: 68px;
     padding-left: 30px;
   }
@@ -120,6 +107,39 @@ input[type='number'] {
     width: 70px;
     height: 54px;
     font-size: 2rem;
+  }
+
+  .inputRange {
+    height: 1px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .inputNumberWrap {
+    width: 427px;
+  }
+
+  .inputNumber {
+    width: 427px;
+  }
+
+  .inputRange {
+    width: 400px;
+    left: 22px;
+    top: 117px;
+  }
+}
+
+@media (max-width: 1439px) {
+  .inputNumberWrap {
+    width: 320px;
+    height: 120px;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .inputNumber {
+    width: 320px;
   }
 
   .inputRange {
@@ -137,7 +157,8 @@ input[type='number'] {
 
     i {
       position: absolute;
-      top: 52%;
+      right: 24px;
+      top: 54%;
       font-family: 'Nekst', Arial, sans-serif;
       font-size: 3rem;
       font-weight: bold;
