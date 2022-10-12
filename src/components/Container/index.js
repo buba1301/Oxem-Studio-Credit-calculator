@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import Button from '../../shared/Button';
 import Input from '../../shared/Input';
 
@@ -11,21 +11,30 @@ import {
 } from '../../utils/elements';
 
 import { getInitialState, reducer } from '../../store';
+import { sendData } from '../../service/fetchData';
 
 import s from './Container.module';
 import Result from '../Result';
 
 const Container = () => {
   const [state, dispatch] = useReducer(reducer, getInitialState(inputsLabels));
+  const [isLoading, setIsLoading] = useState('idle');
 
   useEffect(() => {
     dispatch({ type: 'contractSum' });
     dispatch({ type: 'monhtlyPayment' });
   }, [state.price, state.initial, state.months]);
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log('Отправка!', JSON.stringify(state));
+
+    setIsLoading('loading');
+
+    const response = await sendData(state, 'postData');
+
+    setIsLoading('success');
+
+    console.log('Отправка!', response);
   };
 
   return (
@@ -41,6 +50,7 @@ const Container = () => {
             dispatch={dispatch}
             initialValue={state[label.name]}
             percentValue={state.percent}
+            isLoading={isLoading}
           />
         ))}
       </div>
@@ -49,7 +59,7 @@ const Container = () => {
           <Result key={index} text={text} value={state[name]} name={name} />
         ))}
       </div>
-      <Button text={buttonText} />
+      <Button text={buttonText} isLoading={isLoading} />
     </form>
   );
 };
