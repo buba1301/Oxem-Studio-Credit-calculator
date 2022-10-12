@@ -10,7 +10,7 @@ const Button = ({ text, isLoading }) => (
       className={s.button}
       disabled={isLoading === 'loading'}
     >
-      {text}
+      {isLoading !== 'loading' ? text : <span className={s.loader} />}
     </button>
   </div>
 );
