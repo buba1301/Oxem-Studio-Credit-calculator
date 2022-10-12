@@ -10,16 +10,13 @@ const Input = ({ label, dispatch, initialValue, percentValue }) => {
   const [value, setValue] = useState('');
 
   const handleChangeInput = (e) => {
-    const currentValue = Number(e.target.value);
-    console.log('!!!', currentValue);
+    const currentValue = Number(e.target.value.replace(/\s+/g, ''));
     const currentName = e.target.name;
-    setValue(currentValue);
     dispatch({ type: currentName, payload: currentValue });
   };
 
   const handleChangeInputRange = (e) => {
-    const currentValue = Number(e.target.value);
-
+    const currentValue = e.target.value;
     const currentName = e.target.name;
     setValue(currentValue);
     dispatch({ type: currentName, payload: currentValue });
@@ -52,7 +49,7 @@ const Input = ({ label, dispatch, initialValue, percentValue }) => {
             type='text'
             min={minValue}
             max={maxValue}
-            value={`${percentValue}%`}
+            value={percentValue}
             onChange={handleChangeInput}
           />
         )}

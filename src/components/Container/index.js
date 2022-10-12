@@ -76,6 +76,8 @@ const getInitialState = (data) => {
 const reducer = (state, action) => {
   const initialValue = parseInt(getInitialSum(action.payload, state.price), 10);
 
+  console.log('reducer', action.payload);
+
   switch (action.type) {
     case 'price':
       return {
