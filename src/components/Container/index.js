@@ -30,11 +30,9 @@ const Container = () => {
 
     setIsLoading('loading');
 
-    const response = await sendData(state, 'postData');
+    await sendData(state, 'postData');
 
     setIsLoading('success');
-
-    console.log('Отправка!', response);
   };
 
   return (

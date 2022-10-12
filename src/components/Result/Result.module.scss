@@ -60,6 +60,16 @@
     justify-content: space-evenly;
     align-items: flex-start;
     gap: 0;
+
+    i {
+      position: absolute;
+      top: 35%;
+      right: 35px;
+      font-family: 'Nekst', Arial, sans-serif;
+      font-size: 2.2rem;
+      font-weight: bold;
+      line-height: 2;
+    }
   }
 
   .label {
