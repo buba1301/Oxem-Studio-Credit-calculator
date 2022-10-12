@@ -4,7 +4,7 @@ import cn from 'classnames';
 import s from './Input.module';
 import { numberWithSpaces } from '../../utils';
 
-const Input = ({ label, dispatch, initialValue, percentValue }) => {
+const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
   const { text, minValue, maxValue, name } = label;
 
   const [value, setValue] = useState('');
@@ -12,6 +12,7 @@ const Input = ({ label, dispatch, initialValue, percentValue }) => {
   const handleChangeInput = (e) => {
     const currentValue = Number(e.target.value.replace(/\s+/g, ''));
     const currentName = e.target.name;
+    setValue(currentValue);
     dispatch({ type: currentName, payload: currentValue });
   };
 
@@ -40,6 +41,7 @@ const Input = ({ label, dispatch, initialValue, percentValue }) => {
           max={maxValue}
           value={numberWithSpaces(initialValue)}
           onChange={handleChangeInput}
+          disabled={isLoading === 'loading'}
         />
         {name === 'price' && <i>&#8381;</i>}
         {name === 'initial' && (
@@ -51,6 +53,7 @@ const Input = ({ label, dispatch, initialValue, percentValue }) => {
             max={maxValue}
             value={percentValue}
             onChange={handleChangeInput}
+            disabled={isLoading === 'loading'}
           />
         )}
         <input
@@ -62,6 +65,7 @@ const Input = ({ label, dispatch, initialValue, percentValue }) => {
           step='1'
           value={value}
           onInput={handleChangeInputRange}
+          disabled={isLoading === 'loading'}
         />
       </div>
     </div>
