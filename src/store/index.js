@@ -64,6 +64,11 @@ export const reducer = (state, action) => {
           10
         ),
       };
+    case 'resetValue':
+      return {
+        ...state,
+        [action.payload.name]: action.payload.value,
+      };
     default:
       throw new Error();
   }

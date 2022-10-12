@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 
 import s from './Input.module';
@@ -12,6 +12,10 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
   const handleChangeInput = (e) => {
     const currentValue = Number(e.target.value.replace(/\s+/g, ''));
     const currentName = e.target.name;
+
+    const isCorrectValue =
+      currentValue > Number(minValue) && currentValue < Number(maxValue);
+
     setValue(currentValue);
     dispatch({ type: currentName, payload: currentValue });
   };
