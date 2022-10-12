@@ -1,6 +1,7 @@
 @media (max-width: 1439px), (min-width: 1440px) {
   .resultContainer {
     position: relative;
+    width: 50%;
     height: 100px;
     display: flex;
     flex-direction: column;
@@ -33,10 +34,8 @@
     font-weight: bold;
   }
 
-  .input:after {
-    content: '₽';
-    width: 20px;
-    height: 20px;
+  .ruble {
+    vertical-align: text-bottom;
   }
 }
 
@@ -97,5 +96,10 @@
     font-size: 2.2rem;
     font-weight: bold;
     line-height: 2rem;
+  }
+
+  .ruble {
+    display: inline-block;
+    padding-bottom: 4px;
   }
 }

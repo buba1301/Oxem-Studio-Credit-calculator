@@ -6,15 +6,13 @@ import { numberWithSpaces } from '../../utils';
 
 const Result = ({ text, value, name }) => (
   <div className={s.resultContainer}>
-    <label className={s.label} htmlFor={name}>
+    <span className={s.label} htmlFor={name}>
       {text}
-    </label>
-    <input
-      className={s.input}
-      type='text'
-      name={name}
-      value={numberWithSpaces(value) + '₽'}
-    />
+    </span>
+    <span className={s.input} type='text' name={name}>
+      {numberWithSpaces(value)}
+      <span className={s.ruble}> &#8381;</span>
+    </span>
   </div>
 );
 
