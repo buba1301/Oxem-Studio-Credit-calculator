@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import Button from '../../shared/Button';
 import Input from '../../shared/Input';
 import { numberWithSpaces } from '../../utils';
@@ -13,6 +13,7 @@ import {
 import { getInitialState, reducer } from '../../store';
 
 import s from './Container.module';
+import Result from '../Result';
 
 const Container = () => {
   const [state, dispatch] = useReducer(reducer, getInitialState(inputsLabels));
@@ -40,15 +41,7 @@ const Container = () => {
       </div>
       <div className={s.numbersAndBtnContainer}>
         {numberAndButtonsLabels.map(({ text, name }, index) => (
-          <div key={index} className={s.resultContainer}>
-            <label className={s.label}>{text}</label>
-            <input
-              className={s.input}
-              type='text'
-              value={numberWithSpaces(state[name])}
-            />
-            <i>&#8381;</i>
-          </div>
+          <Result key={index} text={text} value={state[name]} />
         ))}
       </div>
       <Button text={buttonText} />
