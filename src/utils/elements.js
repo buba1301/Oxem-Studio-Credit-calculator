@@ -28,7 +28,7 @@ export const numberAndButtonsLabels = [
   },
   {
     name: 'monhtlyPayment',
-    text: 'Первоначальный взнос',
+    text: 'Месячный платеж',
   },
 ];
 

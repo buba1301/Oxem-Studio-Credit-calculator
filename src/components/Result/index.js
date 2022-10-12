@@ -13,9 +13,8 @@ const Result = ({ text, value, name }) => (
       className={s.input}
       type='text'
       name={name}
-      value={numberWithSpaces(value)}
+      value={numberWithSpaces(value) + '₽'}
     />
-    <i>&#8381;</i>
   </div>
 );
 

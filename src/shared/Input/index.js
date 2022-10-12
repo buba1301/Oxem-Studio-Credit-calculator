@@ -47,7 +47,7 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
           onChange={handleChangeInput}
           disabled={isLoading === 'loading'}
         />
-        {name === 'price' && <i>&#8381;</i>}
+        {name === 'price' && <span className={s.nameSpan}>&#8381;</span>}
         {name === 'initial' && (
           <input
             className={s.inputPercent}
@@ -60,6 +60,7 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
             disabled={isLoading === 'loading'}
           />
         )}
+        {name === 'initial' && <span className={s.initialSpan}>&#8381;</span>}
         <input
           className={s.inputRange}
           type='range'

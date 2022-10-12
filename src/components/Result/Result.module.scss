@@ -9,8 +9,6 @@
 
     i {
       position: absolute;
-      top: 35%;
-      right: 35px;
       font-family: 'Nekst', Arial, sans-serif;
       font-size: 5.4rem;
       font-weight: bold;
@@ -33,7 +31,26 @@
     font-family: 'Nekst', Arial, sans-serif;
     font-size: 5.4rem;
     font-weight: bold;
-    line-height: 0.9;
+  }
+
+  .input:after {
+    content: '₽';
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (min-width: 1440px) {
+  i {
+    top: 35%;
+    right: 120px;
+  }
+}
+
+@media (max-width: 1439px) {
+  i {
+    top: 35%;
+    right: 35px;
   }
 }
 
@@ -62,13 +79,11 @@
     gap: 0;
 
     i {
-      position: absolute;
-      top: 35%;
-      right: 35px;
-      font-family: 'Nekst', Arial, sans-serif;
-      font-size: 2.2rem;
+      top: 50%;
+      left: 38%;
+      font-size: 2rem;
       font-weight: bold;
-      line-height: 2;
+      line-height: 0.9;
     }
   }
 
