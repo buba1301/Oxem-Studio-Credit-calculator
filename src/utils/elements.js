@@ -1,3 +1,5 @@
+export const headerText = 'Расчитайте стоимость автомобиля в лизинг';
+
 export const inputsLabels = [
   {
     name: 'price',

@@ -2,9 +2,9 @@
 import React, { useEffect, useReducer } from 'react';
 import Button from '../../shared/Button';
 import Input from '../../shared/Input';
-import { numberWithSpaces } from '../../utils';
 
 import {
+  headerText,
   inputsLabels,
   numberAndButtonsLabels,
   buttonText,
@@ -23,10 +23,15 @@ const Container = () => {
     dispatch({ type: 'monhtlyPayment' });
   }, [state.price, state.initial, state.months]);
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log('Отправка!', JSON.stringify(state));
+  };
+
   return (
-    <form className={s.container}>
+    <form className={s.container} onSubmit={handleFormSubmit}>
       <div className={s.headerWrap}>
-        <p>Расчитайте стоимость автомобиля в лизинг</p>
+        <p>{headerText}</p>
       </div>
       <div className={s.inputContainer}>
         {inputsLabels.map((label, index) => (
@@ -41,7 +46,7 @@ const Container = () => {
       </div>
       <div className={s.numbersAndBtnContainer}>
         {numberAndButtonsLabels.map(({ text, name }, index) => (
-          <Result key={index} text={text} value={state[name]} />
+          <Result key={index} text={text} value={state[name]} name={name} />
         ))}
       </div>
       <Button text={buttonText} />
