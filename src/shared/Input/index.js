@@ -13,9 +13,6 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
     const currentValue = Number(e.target.value.replace(/\s+/g, ''));
     const currentName = e.target.name;
 
-    const isCorrectValue =
-      currentValue > Number(minValue) && currentValue < Number(maxValue);
-
     setValue(currentValue);
     dispatch({ type: currentName, payload: currentValue });
   };
@@ -23,6 +20,7 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
   const handleChangeInputRange = (e) => {
     const currentValue = e.target.value;
     const currentName = e.target.name;
+
     setValue(currentValue);
     dispatch({ type: currentName, payload: currentValue });
   };
