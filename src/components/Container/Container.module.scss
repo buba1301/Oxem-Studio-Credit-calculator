@@ -1,5 +1,5 @@
 .container {
-  margin: auto;
+  margin: 0 auto;
 }
 
 .headerWrap {
@@ -18,7 +18,7 @@
 @media (max-width: 1439px), (min-width: 1440px) {
   .container {
     margin: auto;
-    height: 100%;
+    margin-top: 10%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
