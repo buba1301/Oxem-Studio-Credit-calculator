@@ -1,3 +1,7 @@
+.container {
+  margin: auto;
+}
+
 .headerWrap {
   width: 100%;
 }
@@ -13,6 +17,7 @@
 
 @media (max-width: 1439px), (min-width: 1440px) {
   .container {
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
