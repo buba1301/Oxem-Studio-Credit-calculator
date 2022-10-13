@@ -64,11 +64,6 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
     [s.fee]: name === 'initial',
   });
 
-  const inputValue =
-    name === 'initial'
-      ? `${numberWithSpaces(initialValue)} ₽`
-      : numberWithSpaces(initialValue);
-
   return (
     <div className={s.divRow}>
       <div className={s.inputNumberWrap}>
@@ -81,7 +76,7 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
           type='text'
           min={minValue}
           max={maxValue}
-          value={inputValue}
+          value={initialValue}
           onChange={handleChangeInput}
           onFocus={handleFocus}
           onBlur={hadndleBlur}
