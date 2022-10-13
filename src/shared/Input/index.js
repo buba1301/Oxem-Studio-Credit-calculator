@@ -40,8 +40,16 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
   };
 
   const handleChangeInput = (e) => {
-    const currentValue = Number(e.target.value.replace(/\s+/g, ''));
+    const currentValue = getNumberFromString(e.target.value);
     const currentName = e.target.name;
+
+    const minMonth = 1;
+
+    if (currentValue < minMonth && currentName === 'months') {
+      setValue(minMonth);
+      dispatch({ type: currentName, payload: minMonth });
+      return;
+    }
 
     setValue(currentValue);
     dispatch({ type: currentName, payload: currentValue });
