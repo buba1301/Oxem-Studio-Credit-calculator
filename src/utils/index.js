@@ -14,3 +14,5 @@ export const numberWithSpaces = (x) => {
   const res = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
   return res;
 };
+
+export const getNumberFromString = (str) => Number(str.replace(/\s/g, ''));

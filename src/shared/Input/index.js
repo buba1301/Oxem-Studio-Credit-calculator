@@ -2,12 +2,42 @@ import React, { useState } from 'react';
 import cn from 'classnames';
 
 import s from './Input.module';
-import { numberWithSpaces } from '../../utils';
+import { getNumberFromString, numberWithSpaces } from '../../utils';
 
 const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
   const { text, minValue, maxValue, name } = label;
 
   const [value, setValue] = useState('');
+
+  const handleFocus = (e) => {
+    const currentName = e.target.name;
+
+    if (currentName === 'price') {
+      dispatch({ type: currentName, payload: '' });
+      setValue(minValue);
+    } else {
+      dispatch({ type: currentName, payload: minValue });
+      setValue(minValue);
+    }
+  };
+
+  const hadndleBlur = (e) => {
+    const currentName = e.target.name;
+    const currentValue = getNumberFromString(e.target.value);
+
+    const isValidValue = currentValue >= minValue && currentValue <= maxValue;
+
+    if (isValidValue) {
+      dispatch({ type: currentName, payload: currentValue });
+      setValue(currentValue);
+    } else if (currentValue < minValue) {
+      dispatch({ type: currentName, payload: minValue });
+      setValue(minValue);
+    } else {
+      dispatch({ type: currentName, payload: maxValue });
+      setValue(maxValue);
+    }
+  };
 
   const handleChangeInput = (e) => {
     const currentValue = Number(e.target.value.replace(/\s+/g, ''));
@@ -43,6 +73,8 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
           max={maxValue}
           value={numberWithSpaces(initialValue)}
           onChange={handleChangeInput}
+          onFocus={handleFocus}
+          onBlur={hadndleBlur}
           disabled={isLoading === 'loading'}
         />
         {name === 'price' && <span className={s.nameSpan}>&#8381;</span>}
@@ -55,6 +87,7 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
             max={maxValue}
             value={percentValue}
             onChange={handleChangeInput}
+            onFocus={handleFocus}
             disabled={isLoading === 'loading'}
           />
         )}
