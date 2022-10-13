@@ -9,15 +9,18 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
 
   const [value, setValue] = useState('');
 
+  const moveDispatch = (type, payload) => {
+    dispatch({ type, payload });
+    setValue(payload);
+  };
+
   const handleFocus = (e) => {
     const currentName = e.target.name;
 
     if (currentName === 'price') {
-      dispatch({ type: currentName, payload: '' });
-      setValue(minValue);
+      moveDispatch(currentName, '');
     } else {
-      dispatch({ type: currentName, payload: minValue });
-      setValue(minValue);
+      moveDispatch(currentName, minValue);
     }
   };
 
@@ -28,14 +31,11 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
     const isValidValue = currentValue >= minValue && currentValue <= maxValue;
 
     if (isValidValue) {
-      dispatch({ type: currentName, payload: currentValue });
-      setValue(currentValue);
+      moveDispatch(currentName, currentValue);
     } else if (currentValue < minValue) {
-      dispatch({ type: currentName, payload: minValue });
-      setValue(minValue);
+      moveDispatch(currentName, minValue);
     } else {
-      dispatch({ type: currentName, payload: maxValue });
-      setValue(maxValue);
+      moveDispatch(currentName, maxValue);
     }
   };
 
@@ -46,21 +46,18 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
     const minMonth = 1;
 
     if (currentValue < minMonth && currentName === 'months') {
-      setValue(minMonth);
-      dispatch({ type: currentName, payload: minMonth });
+      moveDispatch(currentName, minMonth);
       return;
     }
 
-    setValue(currentValue);
-    dispatch({ type: currentName, payload: currentValue });
+    moveDispatch(currentName, currentValue);
   };
 
   const handleChangeInputRange = (e) => {
     const currentValue = e.target.value;
     const currentName = e.target.name;
 
-    setValue(currentValue);
-    dispatch({ type: currentName, payload: currentValue });
+    moveDispatch(currentName, currentValue);
   };
 
   const classNamesForInputNumber = cn(s.inputNumber, {
