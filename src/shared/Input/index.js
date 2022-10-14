@@ -76,7 +76,7 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
           type='text'
           min={minValue}
           max={maxValue}
-          value={initialValue}
+          value={numberWithSpaces(initialValue)}
           onChange={handleChangeInput}
           onFocus={handleFocus}
           onBlur={hadndleBlur}
