@@ -21,8 +21,8 @@ const Container = () => {
   const [isLoading, setIsLoading] = useState('idle');
 
   useEffect(() => {
-    dispatch({ type: 'contractSum' });
     dispatch({ type: 'monhtlyPayment' });
+    dispatch({ type: 'contractSum' });
   }, [state.price, state.initial, state.months]);
 
   const handleFormSubmit = async (e) => {

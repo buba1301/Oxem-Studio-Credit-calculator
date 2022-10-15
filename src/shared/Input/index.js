@@ -18,7 +18,7 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
     const currentName = e.target.name;
 
     if (currentName === 'price') {
-      moveDispatch(currentName, '');
+      moveDispatch(currentName, 0);
     } else {
       moveDispatch(currentName, minValue);
     }
