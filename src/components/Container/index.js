@@ -24,6 +24,7 @@ const Container = () => {
     reducer,
     getInitialState(inputsLabels)
   );
+
   const [isLoading, setIsLoading] = useState('idle');
 
   useEffect(() => {
@@ -49,7 +50,11 @@ const Container = () => {
       <div className={s.inputContainer}>
         {inputsLabels.map((label, index) => (
           <Input
-            label={label}
+            // label={label}
+            name={label.name}
+            text={label.text}
+            min={label.minValue}
+            max={label.maxValue}
             key={index}
             dispatch={dispatch}
             initialValue={state[label.name]}

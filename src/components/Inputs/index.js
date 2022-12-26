@@ -7,13 +7,16 @@ import Input from '../../shared/Input';
 import Maybe from '../MayBe';
 
 const Inputs = ({
-  label,
+  name,
+  text,
+  min,
+  max,
   dispatch,
   initialValue,
   percentValue,
   isLoading,
 }) => {
-  const { text, minValue, maxValue, name } = label;
+  // const { text, minValue, maxValue, name } = label;
 
   const [value, setValue] = useState('');
 
@@ -28,7 +31,7 @@ const Inputs = ({
     if (currentName === 'price') {
       moveDispatch(currentName, 0);
     } else {
-      moveDispatch(currentName, minValue);
+      moveDispatch(currentName, min);
     }
   };
 
@@ -36,15 +39,14 @@ const Inputs = ({
     const currentName = e.target.name;
     const currentValue = getNumberFromString(e.target.value);
 
-    const isValidValue =
-      currentValue >= minValue && currentValue <= maxValue;
+    const isValidValue = currentValue >= min && currentValue <= max;
 
     if (isValidValue) {
       moveDispatch(currentName, currentValue);
-    } else if (currentValue < minValue) {
-      moveDispatch(currentName, minValue);
+    } else if (currentValue < min) {
+      moveDispatch(currentName, min);
     } else {
-      moveDispatch(currentName, maxValue);
+      moveDispatch(currentName, max);
     }
   };
 
@@ -78,8 +80,8 @@ const Inputs = ({
           name={name}
           type='text'
           text={text}
-          min={minValue}
-          max={maxValue}
+          min={min}
+          max={max}
           value={numberWithSpaces(initialValue)}
           onChange={handleChangeInput}
           onFocus={handleFocus}
@@ -94,8 +96,8 @@ const Inputs = ({
           <Input
             name='percent'
             type='text'
-            min={minValue}
-            max={maxValue}
+            min={min}
+            max={max}
             value={percentValue}
             onChange={handleChangeInput}
             onFocus={handleFocus}
@@ -107,8 +109,8 @@ const Inputs = ({
         <InputRange
           type='range'
           name={name === 'initial' ? 'percent' : name}
-          min={minValue}
-          max={maxValue}
+          min={min}
+          max={max}
           step='1'
           value={value}
           onInput={handleChangeInputRange}
