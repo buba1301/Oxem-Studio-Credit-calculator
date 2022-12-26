@@ -16,8 +16,6 @@ const Inputs = ({
   percentValue,
   isLoading,
 }) => {
-  // const { text, minValue, maxValue, name } = label;
-
   const [value, setValue] = useState('');
 
   const moveDispatch = (type, payload) => {

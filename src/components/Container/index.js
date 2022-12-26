@@ -3,8 +3,7 @@ import React, { useEffect, useReducer, useState } from 'react';
 import Button from '../../shared/Button';
 import Input from '../Inputs';
 
-// TODO: разбить на тупые компоненты с версткой и контейнеры с логикой
-// TODO: сделать отдельный Range Component
+// TODO: убрать useEffect
 
 import {
   headerText,
@@ -48,14 +47,13 @@ const Container = () => {
         <p>{headerText}</p>
       </div>
       <div className={s.inputContainer}>
-        {inputsLabels.map((label, index) => (
+        {inputsLabels.map((label) => (
           <Input
-            // label={label}
             name={label.name}
             text={label.text}
             min={label.minValue}
             max={label.maxValue}
-            key={index}
+            key={label.name}
             dispatch={dispatch}
             initialValue={state[label.name]}
             percentValue={state.percent}
@@ -64,9 +62,9 @@ const Container = () => {
         ))}
       </div>
       <div className={s.numbersAndBtnContainer}>
-        {numberAndButtonsLabels.map(({ text, name }, index) => (
+        {numberAndButtonsLabels.map(({ text, name }) => (
           <Result
-            key={index}
+            key={name}
             text={text}
             value={state[name]}
             name={name}
