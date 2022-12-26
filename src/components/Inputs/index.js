@@ -72,12 +72,10 @@ const Inputs = ({
   return (
     <div className={s.divRow}>
       <div className={s.inputNumberWrap}>
-        <label className={s.label} htmlFor={name}>
-          {text}
-        </label>
         <Input
           name={name}
           type='text'
+          text={text}
           min={minValue}
           max={maxValue}
           value={numberWithSpaces(initialValue)}

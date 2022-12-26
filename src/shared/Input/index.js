@@ -2,10 +2,12 @@ import React from 'react';
 import cn from 'classnames';
 
 import s from './Input.module';
+import Maybe from '../../components/MayBe';
 
 const Input = ({
   name,
   text,
+  type,
   min,
   max,
   value,
@@ -22,13 +24,16 @@ const Input = ({
 
   return (
     <>
-      <label className={s.label} htmlFor={name}>
-        {text}
-      </label>
+      <Maybe test={name !== 'percent'}>
+        <label className={s.label} htmlFor={name}>
+          {text}
+        </label>
+      </Maybe>
+
       <input
         className={classNamesInput}
         name={name}
-        type='text'
+        type={type}
         min={min}
         max={max}
         value={value}
