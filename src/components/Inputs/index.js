@@ -69,6 +69,8 @@ const Inputs = ({
     moveDispatch(currentName, currentValue);
   };
 
+  const disabled = isLoading === 'loading';
+
   return (
     <div className={s.divRow}>
       <div className={s.inputNumberWrap}>
@@ -82,7 +84,7 @@ const Inputs = ({
           onChange={handleChangeInput}
           onFocus={handleFocus}
           onBlur={hadndleBlur}
-          disabled={isLoading === 'loading'}
+          disabled={disabled}
         />
 
         <Maybe test={name !== 'initial'}>
@@ -97,7 +99,7 @@ const Inputs = ({
             value={percentValue}
             onChange={handleChangeInput}
             onFocus={handleFocus}
-            disabled={isLoading === 'loading'}
+            disabled={disabled}
           />
           <span className={s.initialSpan}>&#8381;</span>
         </Maybe>
@@ -110,7 +112,7 @@ const Inputs = ({
           step='1'
           value={value}
           onInput={handleChangeInputRange}
-          disabled={isLoading === 'loading'}
+          disabled={disabled}
         />
       </div>
     </div>
