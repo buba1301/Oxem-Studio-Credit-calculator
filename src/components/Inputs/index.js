@@ -54,14 +54,16 @@ const Inputs = ({
     const currentValue = getNumberFromString(e.target.value);
     const currentName = e.target.name;
 
+    console.log('handleChangeInput', currentValue, currentName);
+
     const minMonth = 1;
 
-    if (currentValue < minMonth && currentName === 'months') {
-      moveDispatch(currentName, minMonth);
-      return;
-    }
+    const isInvalidMonthValue = currentValue < minMonth;
+    const isMonthInput = currentName === 'months';
 
-    moveDispatch(currentName, currentValue);
+    isInvalidMonthValue && isMonthInput
+      ? moveDispatch(currentName, minMonth)
+      : moveDispatch(currentName, currentValue);
   };
 
   const handleChangeInputRange = (e) => {
