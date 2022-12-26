@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect, useReducer, useState } from 'react';
 import Button from '../../shared/Button';
-import Input from '../Inputs';
+import Inputs from '../Inputs';
 
 // TODO: убрать useEffect
 
@@ -48,7 +48,7 @@ const Container = () => {
       </div>
       <div className={s.inputContainer}>
         {inputsLabels.map((label) => (
-          <Input
+          <Inputs
             name={label.name}
             text={label.text}
             min={label.minValue}
