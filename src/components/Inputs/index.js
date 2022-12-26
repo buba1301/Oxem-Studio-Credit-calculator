@@ -26,11 +26,11 @@ const Inputs = ({
   const handleFocus = (e) => {
     const currentName = e.target.name;
 
-    if (currentName === 'price') {
-      moveDispatch(currentName, 0);
-    } else {
-      moveDispatch(currentName, min);
-    }
+    const isPriceInput = currentName === 'price';
+
+    const payload = !isPriceInput ? min : 0;
+
+    moveDispatch(currentName, payload);
   };
 
   const hadndleBlur = (e) => {
@@ -38,14 +38,16 @@ const Inputs = ({
     const currentValue = getNumberFromString(e.target.value);
 
     const isValidValue = currentValue >= min && currentValue <= max;
+    const isValueLess = currentValue < min;
 
     if (isValidValue) {
       moveDispatch(currentName, currentValue);
-    } else if (currentValue < min) {
-      moveDispatch(currentName, min);
-    } else {
-      moveDispatch(currentName, max);
+      return;
     }
+
+    isValueLess
+      ? moveDispatch(currentName, min)
+      : moveDispatch(currentName, max);
   };
 
   const handleChangeInput = (e) => {
