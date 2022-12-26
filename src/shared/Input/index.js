@@ -14,7 +14,7 @@ const Input = ({
   onBlur,
   disabled,
 }) => {
-  const classNamesForInputNumber = cn({
+  const classNamesInput = cn({
     [s.inputNumber]: name !== 'percent',
     [s.inputPercent]: name === 'percent',
     [s.fee]: name === 'initial',
@@ -26,7 +26,7 @@ const Input = ({
         {text}
       </label>
       <input
-        className={classNamesForInputNumber}
+        className={classNamesInput}
         name={name}
         type='text'
         min={min}

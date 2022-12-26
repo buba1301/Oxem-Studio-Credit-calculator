@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import cn from 'classnames';
 
 import s from './Inputs.module';
 import { getNumberFromString, numberWithSpaces } from '../../utils';
@@ -70,10 +69,6 @@ const Inputs = ({
     moveDispatch(currentName, currentValue);
   };
 
-  const classNamesForInputNumber = cn(s.inputNumber, {
-    [s.fee]: name === 'initial',
-  });
-
   return (
     <div className={s.divRow}>
       <div className={s.inputNumberWrap}>
@@ -81,7 +76,6 @@ const Inputs = ({
           {text}
         </label>
         <Input
-          // className={classNamesForInputNumber}
           name={name}
           type='text'
           min={minValue}
@@ -98,7 +92,6 @@ const Inputs = ({
         </Maybe>
         <Maybe test={name === 'initial'}>
           <Input
-            // className={s.inputPercent}
             name='percent'
             type='text'
             min={minValue}

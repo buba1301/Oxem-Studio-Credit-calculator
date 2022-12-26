@@ -22,25 +22,6 @@
 @media (max-width: 1439px),
 (min-width: 1440px) {
 
-	.nameSpan,
-	.initialSpan {
-		position: absolute;
-		font-family: 'Nekst', Arial, sans-serif;
-		font-size: 3rem;
-		font-weight: bold;
-		line-height: 3.6rem;
-	}
-
-	.nameSpan {
-		right: 24px;
-		top: 54%;
-	}
-
-	.initialSpan {
-		left: 40%;
-		top: 54%;
-	}
-
 	.label {
 		font-size: 1.6rem;
 		line-height: 2rem;
@@ -75,38 +56,12 @@
 }
 
 @media (max-width: 1439px) {
-	.initialSpan {
-		left: 55%;
-		top: 54%;
-	}
-
 	.inputNumber {
 		width: 320px;
 	}
 }
 
 @media (max-width: 1119px) {
-
-
-	.nameSpan,
-	.initialSpan {
-		position: absolute;
-		font-family: 'Nekst', Arial, sans-serif;
-		font-size: 3rem;
-		font-weight: bold;
-		line-height: 3.6rem;
-	}
-
-	.nameSpan {
-		right: 24px;
-		top: 54%;
-	}
-
-	.initialSpan {
-		left: 26%;
-		top: 54%;
-	}
-
 	.label {
 		align-self: flex-start;
 	}
@@ -123,26 +78,6 @@
 }
 
 @media (max-width: 767px) {
-
-	.nameSpan,
-	.initialSpan {
-		position: absolute;
-		font-family: 'Nekst', Arial, sans-serif;
-		font-size: 2.2rem;
-		font-weight: bold;
-		line-height: 2rem;
-	}
-
-	.nameSpan {
-		right: 35px;
-		top: 50%;
-	}
-
-	.initialSpan {
-		left: 45%;
-		top: 50%;
-	}
-
 	.label {
 		margin-left: 10px;
 		font-size: 1.4rem;
