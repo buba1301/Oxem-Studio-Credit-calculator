@@ -1,0 +1,216 @@
+.divRow,
+.inputNumberWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.divRow {
+  width: 100%;
+}
+
+.label {
+  font-style: 'Gilroy', Arial, sans-serif;
+}
+
+.inputNumberWrap {
+  position: relative;
+
+  input:disabled {
+    background-color: #f3f3f4;
+  }
+}
+
+.inputNumber,
+.inputPercent {
+  font-family: 'Nekst', Arial, sans-serif;
+  font-weight: bold;
+  background-color: #e3e3e3;
+}
+
+.fee {
+  pointer-events: none;
+}
+
+.inputPercent {
+  position: absolute;
+  background-color: grey;
+  text-align: center;
+}
+
+@media (max-width: 1439px),
+(min-width: 1440px) {
+  .inputNumberWrap {
+    height: 120px;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .nameSpan,
+    .initialSpan {
+      position: absolute;
+      font-family: 'Nekst', Arial, sans-serif;
+      font-size: 3rem;
+      font-weight: bold;
+      line-height: 3.6rem;
+    }
+
+    .nameSpan {
+      right: 24px;
+      top: 54%;
+    }
+
+    .initialSpan {
+      left: 40%;
+      top: 54%;
+    }
+  }
+
+  .label {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+
+  .inputNumber,
+  .inputPercent {
+    border-radius: 16px;
+    border: none;
+    font-size: 3rem;
+    line-height: 3.6rem;
+  }
+
+  .inputNumber {
+    height: 68px;
+    padding-left: 30px;
+  }
+
+  .inputPercent {
+    right: 5%;
+    top: 50%;
+    width: 70px;
+    height: 54px;
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .inputNumberWrap {
+    width: 427px;
+  }
+
+  .inputNumber {
+    width: 427px;
+  }
+}
+
+@media (max-width: 1439px) {
+  .inputNumberWrap {
+    width: 320px;
+    height: 120px;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .initialSpan {
+      left: 55%;
+      top: 54%;
+    }
+  }
+
+  .inputNumber {
+    width: 320px;
+  }
+}
+
+@media (max-width: 1119px) {
+  .inputNumberWrap {
+    width: 696px;
+    justify-content: space-between;
+
+    .nameSpan,
+    .initialSpan {
+      position: absolute;
+      font-family: 'Nekst', Arial, sans-serif;
+      font-size: 3rem;
+      font-weight: bold;
+      line-height: 3.6rem;
+    }
+
+    .nameSpan {
+      right: 24px;
+      top: 54%;
+    }
+
+    .initialSpan {
+      left: 26%;
+      top: 54%;
+    }
+  }
+
+  .label {
+    align-self: flex-start;
+  }
+
+  .inputNumber {
+    width: 696px;
+    padding-left: 25px;
+  }
+
+  .inputPercent {
+    right: 5%;
+    top: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .divRow {
+    height: 10rem;
+  }
+
+  .inputNumberWrap {
+    width: 300px;
+    height: 85%;
+
+    .nameSpan,
+    .initialSpan {
+      position: absolute;
+      font-family: 'Nekst', Arial, sans-serif;
+      font-size: 2.2rem;
+      font-weight: bold;
+      line-height: 2rem;
+    }
+
+    .nameSpan {
+      right: 35px;
+      top: 50%;
+    }
+
+    .initialSpan {
+      left: 45%;
+      top: 50%;
+    }
+  }
+
+  .label {
+    margin-left: 10px;
+    font-size: 1.4rem;
+    font-style: 'Gilroy', Arial, sans-serif;
+    line-height: 1.6rem;
+  }
+
+  .inputNumber,
+  .inputPercent {
+    font-size: 2.2rem;
+    line-height: 2rem;
+  }
+
+  .inputNumber {
+    width: 280px;
+    height: 60px;
+    padding-left: 20px;
+  }
+
+  .inputPercent {
+    right: 10%;
+    top: 35%;
+    width: 67px;
+    height: 48px;
+  }
+}

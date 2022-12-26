@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect, useReducer, useState } from 'react';
 import Button from '../../shared/Button';
-import Input from '../../shared/Input';
+import Input from '../Inputs';
 
 // TODO: разбить на тупые компоненты с версткой и контейнеры с логикой
 // TODO: сделать отдельный Range Component
