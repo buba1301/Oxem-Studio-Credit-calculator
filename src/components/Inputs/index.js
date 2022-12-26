@@ -54,8 +54,6 @@ const Inputs = ({
     const currentValue = getNumberFromString(e.target.value);
     const currentName = e.target.name;
 
-    console.log('handleChangeInput', currentValue, currentName);
-
     const minMonth = 1;
 
     const isInvalidMonthValue = currentValue < minMonth;
