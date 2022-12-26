@@ -3,8 +3,15 @@ import cn from 'classnames';
 
 import s from './Input.module';
 import { getNumberFromString, numberWithSpaces } from '../../utils';
+import InputRange from '../InputRange/inde';
 
-const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
+const Input = ({
+  label,
+  dispatch,
+  initialValue,
+  percentValue,
+  isLoading,
+}) => {
   const { text, minValue, maxValue, name } = label;
 
   const [value, setValue] = useState('');
@@ -28,7 +35,8 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
     const currentName = e.target.name;
     const currentValue = getNumberFromString(e.target.value);
 
-    const isValidValue = currentValue >= minValue && currentValue <= maxValue;
+    const isValidValue =
+      currentValue >= minValue && currentValue <= maxValue;
 
     if (isValidValue) {
       moveDispatch(currentName, currentValue);
@@ -82,7 +90,9 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
           onBlur={hadndleBlur}
           disabled={isLoading === 'loading'}
         />
-        {name === 'price' && <span className={s.nameSpan}>&#8381;</span>}
+        {name === 'price' && (
+          <span className={s.nameSpan}>&#8381;</span>
+        )}
         {name === 'initial' && (
           <input
             className={s.inputPercent}
@@ -96,9 +106,11 @@ const Input = ({ label, dispatch, initialValue, percentValue, isLoading }) => {
             disabled={isLoading === 'loading'}
           />
         )}
-        {name === 'initial' && <span className={s.initialSpan}>&#8381;</span>}
-        <input
-          className={s.inputRange}
+        {name === 'initial' && (
+          <span className={s.initialSpan}>&#8381;</span>
+        )}
+        <InputRange
+          // className={s.inputRange}
           type='range'
           name={name === 'initial' ? 'percent' : name}
           min={minValue}

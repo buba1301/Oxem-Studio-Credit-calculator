@@ -3,6 +3,9 @@ import React, { useEffect, useReducer, useState } from 'react';
 import Button from '../../shared/Button';
 import Input from '../../shared/Input';
 
+// TODO: разбить на тупые компоненты с версткой и контейнеры с логикой
+// TODO: сделать отдельный Range Component
+
 import {
   headerText,
   inputsLabels,
@@ -17,7 +20,10 @@ import s from './Container.module';
 import Result from '../Result';
 
 const Container = () => {
-  const [state, dispatch] = useReducer(reducer, getInitialState(inputsLabels));
+  const [state, dispatch] = useReducer(
+    reducer,
+    getInitialState(inputsLabels)
+  );
   const [isLoading, setIsLoading] = useState('idle');
 
   useEffect(() => {
@@ -54,7 +60,12 @@ const Container = () => {
       </div>
       <div className={s.numbersAndBtnContainer}>
         {numberAndButtonsLabels.map(({ text, name }, index) => (
-          <Result key={index} text={text} value={state[name]} name={name} />
+          <Result
+            key={index}
+            text={text}
+            value={state[name]}
+            name={name}
+          />
         ))}
       </div>
       <Button text={buttonText} isLoading={isLoading} />
